@@ -1,0 +1,22 @@
+Code runtime
+----------------
+
+AC vs DC
+---------
+AC:
+  dt = 25
+    1) 4.92 s
+    2) 4.68 s
+    3) 4.93 s
+    4) 4.64 s
+    5) 4.80 s
+DC:
+  dt =  25
+    1) 4.86 s
+    2) 4.83 s
+    3) 4.81 s
+    4) 4.90 s
+    5) 4.68 s
+
+=> no significant difference
+

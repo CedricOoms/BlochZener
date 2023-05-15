@@ -1,4 +1,4 @@
-function [ vplot ] = Qwalk( )
+function Qwalk( )
 %QWALK Simulation of a Bloch-Zener Quantum Walk
 
 %% Input variables
@@ -7,7 +7,7 @@ ACDC = 0;                   % Tag that determines whether calculation is AC(0) o
 
 n_T = 2;                    % Number of field oscillations
 n_dt = 50;                  % Number of time steps within period of field oscillation
-dt = 75;                    % Time step
+dt = 50;                    % Time step
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 10.0;                % Drop of potential over chain
@@ -32,7 +32,7 @@ vtot(:,1) = v;
 %% Main Calculation
 
 % Create Hamiltonian for positive and negative field
-
+tic;
 Hp = formMatrix(-Fmax,a,M,Vlat,t);
 if ACDC==1      % For DC calculation, Hamiltonian is the same
     Hn = Hp;
@@ -55,7 +55,9 @@ for i = 1:n_T
         vtot(:,(i-1)*n_dt+j+1) = v;
     end
 end
-    
+runtime=toc;
+fprintf("Runtime: %.2f s\n",runtime);
+
 %% Plot the resulting wavefunction trajectory
 
 vtot = conj(vtot).*vtot;
@@ -107,5 +109,4 @@ while k < N
     v1 = v2;
     k = k+1;
 end
-
 end
