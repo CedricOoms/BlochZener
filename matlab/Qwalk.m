@@ -5,9 +5,9 @@ function Qwalk( )
 
 ACDC = 0;                   % Tag that determines whether calculation is AC(0) or DC(1)
 
-n_T = 5;                    % Number of field oscillations
-n_dt = 20;                  % Number of time steps within period of field oscillation
-dt = 25;                    % Time step
+n_T = 2;                    % Number of field oscillations
+n_dt = 50;                  % Number of time steps within period of field oscillation
+dt = 50;                    % Time step
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 50.0;                % Drop of potential over chain
@@ -15,7 +15,7 @@ t = 1.0;                    % Hopping amplitude
 
 a = 2.5*t+1.2*Fmax;         % Defines bounds of the spectrum [-a,a]
 M = 2^12;                   % Chain length
-Vlat = [0.8];               % Lattice dimerization potential
+Vlat = [0.2];               % Lattice dimerization potential
 
 %% Initialisation
 

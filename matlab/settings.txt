@@ -1,8 +1,8 @@
 Fig1:
 
-n_T = 5;                    % Number of field oscillations
-n_dt = 20;                  % Number of time steps within period of field oscillation
-dt = 25;                    % Time step
+n_T = 2;                    % Number of field oscillations
+n_dt = 50;                  % Number of time steps within period of field oscillation
+dt = 50;                    % Time step
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 10.0;                % Drop of potential over chain
@@ -16,9 +16,9 @@ Vlat = [0.2];               % Lattice dimerization potential
 
 Fig2:
 
-n_T = 5;                    % Number of field oscillations
-n_dt = 20;                  % Number of time steps within period of field oscillation
-dt = 25;                    % Time step
+n_T = 2;                    % Number of field oscillations
+n_dt = 50;                  % Number of time steps within period of field oscillation
+dt = 50;                    % Time step
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 50.0;                % Drop of potential over chain
