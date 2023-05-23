@@ -3,14 +3,14 @@ function Qwalk( )
 
 %% Input variables
 
-ACDC = 1;                   % Tag that determines whether calculation is AC(0) or DC(1)
+ACDC = 0;                   % Tag that determines whether calculation is AC(0) or DC(1)
 
-n_T = 2;                    % Number of field oscillations
-n_dt = 50;                  % Number of time steps within period of field oscillation
+n_T = 3;                    % Number of field oscillations
+n_dt = 20;                  % Number of time steps within period of field oscillation
 dt = 50;                    % Time step
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
-Fmax = 15.0;                % Drop of potential over chain
+Fmax = 25.0;                % Drop of potential over chain
 t = 1.0;                    % Hopping amplitude
 
 a = 2.5*t+1.2*Fmax;         % Defines bounds of the spectrum [-a,a]
@@ -18,7 +18,6 @@ M = 2^12;                   % Chain length
 Vlat = [0.05];               % Lattice dimerization potential
 
 %% Initialisation
-
 sigsq = 80^2;              % Width of Gaussian
 x0 = M/2;                   % Initial position of wavepacket
 %k = -acos(1-E0/2);          % Wave packet momentum
@@ -72,7 +71,6 @@ end
 %% FORMMATRIX Builds the Hamiltonian
 
 function [H] = formMatrix(Fin,a,M,Vlat,t)
-    
     % In case of a dimer chain
     if length(Vlat) == 1
         D1 = ((1:M)'*Fin/M+(-1).^(1:M)'*Vlat)/a; %sets the dimerization potential
