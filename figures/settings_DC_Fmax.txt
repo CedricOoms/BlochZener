@@ -1,0 +1,26 @@
+Fmax = 10.0 VS Fmax = 20.0 % Drop of potential over chain
+-------
+
+ACDC = 1;                   % Tag that determines whether calculation is AC(0) or DC(1)
+
+n_T = 3;                    % Number of field oscillations
+n_dt = 50;                  % Number of time steps within period of field oscillation
+dt = 50;                    % Time step
+
+%E0 = 0.0;                  % Initial energy of the wavepacket
+t = 1.0;                    % Hopping amplitude
+
+a = 2.5*t+1.2*Fmax;         % Defines bounds of the spectrum [-a,a]
+M = 2^12;                   % Chain length
+Vlat = [0.2];               % Lattice dimerization potential
+
+%% Initialisation
+sigsq = 80^2;              % Width of Gaussian
+x0 = M/2;                   % Initial position of wavepacket
+%k = -acos(1-E0/2);          % Wave packet momentum
+x = (1:M)';                 % Chain grid
+vtot = zeros(M,n_T*n_dt+1); % Keeps track of wavefunction
+
+% Initial wavepacket phi(x)
+v = 1/(sqrt(sqrt(2*pi*sigsq)))*exp(-(x-x0*ones(M,1)).^2/(4*sigsq));
+vtot(:,1) = v;
