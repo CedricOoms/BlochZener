@@ -5,9 +5,15 @@ function Qwalk( )
 
 ACDC = 1;                   % Tag that determines whether calculation is AC(0) or DC(1)
 
+<<<<<<< HEAD
+n_T = 10;                    % Number of field oscillations
+n_dt = 100;                  % Number of time steps within period of field oscillation
+dt = 10;                    % Time step
+=======
 n_T = 2;                    % Number of field oscillations
 n_dt = 50;                  % Number of time steps within period of field oscillation
 dt = 50;                    % Time step
+>>>>>>> 10cc908250a46c91c78c62f954477a2a033b0f14
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 25.0;                % Drop of potential over chain
@@ -15,7 +21,11 @@ t = 1.0;                    % Hopping amplitude
 
 a = 2.5*t+1.2*Fmax;         % Defines bounds of the spectrum [-a,a]
 M = 2^12;                   % Chain length
+<<<<<<< HEAD
+Vlat = [0.05 0.1 0.15];               % Lattice dimerization potential
+=======
 Vlat = [0.2 0.15];               % Lattice dimerization potential
+>>>>>>> 10cc908250a46c91c78c62f954477a2a033b0f14
 
 %% Initialisation
 sigsq = 80^2;              % Width of Gaussian
@@ -57,7 +67,12 @@ end
 %% Plot the resulting wavefunction trajectory
 
 vtot = conj(vtot).*vtot;
+<<<<<<< HEAD
+%vplot = (vtot(1:2:M,:)+vtot(2:2:M,:))/2;    % Taking average over unit cell
+vplot = (vtot(1:4:M,:)+vtot(2:4:M,:)+vtot(3:4:M,:)+vtot(4:4:M,:))/4;
+=======
 vplot = (vtot(1:2:M,:)+vtot(2:2:M,:))/2;    % Taking average over unit cell
+>>>>>>> 10cc908250a46c91c78c62f954477a2a033b0f14
 wf = real(vplot);
 
 figure;
