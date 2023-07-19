@@ -1,11 +1,14 @@
-dt_vec=25:5:75;
+n_dt_vec=2:2:100;
 runtime=[];
-for dt=dt_vec
-    runtime(end+1)=Qwalk_mod(dt);
+dt=[];
+for n_dt=n_dt_vec
+    [runtime_i,dt_i]=Qwalk_mod(n_dt);
+    runtime(end+1)=runtime_i;
+    dt(end+1)=dt_i;
 end
 
 figure();
-plot(dt_vec,runtime);
+plot(dt,runtime);
 xlabel("dt");
 ylabel("runtime");
 title("Runtime of the code as a function of the numerical time step size dt");

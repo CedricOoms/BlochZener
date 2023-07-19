@@ -1,13 +1,14 @@
-function runtime = Qwalk( dt )
+function [runtime,dt] = Qwalk( n_dt )
 %QWALK Simulation of a Bloch-Zener Quantum Walk
 
 %% Input variables
 
-ACDC = 0;                   % Tag that determines whether calculation is AC(0) or DC(1)
+ACDC = 1;                   % Tag that determines whether calculation is AC(0) or DC(1)
 
 n_T = 2;                    % Number of field oscillations
-n_dt = 50;                  % Number of time steps within period of field oscillation
-%dt = 50;                    % Time step
+T_prop = 50*n_T; %propagation time
+dt = T_prop/n_dt;
+%n_dt = T_prop/dt;                  % Number of time steps within period of field oscillation
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 10.0;                % Drop of potential over chain
@@ -20,7 +21,7 @@ Vlat = [0.2];               % Lattice dimerization potential
 %% Initialisation
 
 sigsq = 80^2;              % Width of Gaussian
-x0 = M/20;                   % Initial position of wavepacket
+x0 = M/2;                   % Initial position of wavepacket
 %k = -acos(1-E0/2);          % Wave packet momentum
 x = (1:M)';                 % Chain grid
 vtot = zeros(M,n_T*n_dt+1); % Keeps track of wavefunction
@@ -32,7 +33,6 @@ vtot(:,1) = v;
 %% Main Calculation
 
 % Create Hamiltonian for positive and negative field
-tic;
 Hp = formMatrix(-Fmax,a,M,Vlat,t);
 if ACDC==1      % For DC calculation, Hamiltonian is the same
     Hn = Hp;
@@ -40,6 +40,7 @@ else
 Hn = formMatrix(Fmax,a,M,Vlat,t);
 end
 
+tic;
 % Start updating wavefunction for n_T field oscillations
 for i = 1:n_T
     %i
