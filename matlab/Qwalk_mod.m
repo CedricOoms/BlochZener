@@ -5,8 +5,8 @@ function [runtime,dt] = Qwalk( n_dt )
 
 ACDC = 1;                   % Tag that determines whether calculation is AC(0) or DC(1)
 
-n_T = 2;                    % Number of field oscillations
-T_prop = 50*n_T; %propagation time
+n_T = 1;                    % Number of field oscillations
+T_prop = 1000; %propagation time
 dt = T_prop/n_dt;
 %n_dt = T_prop/dt;                  % Number of time steps within period of field oscillation
 
@@ -57,8 +57,6 @@ for i = 1:n_T
     end
 end
 runtime=toc;
-fprintf("Runtime: %.2f s\n",runtime);
-
 end
 
 %% FORMMATRIX Builds the Hamiltonian

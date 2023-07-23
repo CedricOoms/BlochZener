@@ -3,11 +3,11 @@ function Qwalk( )
 
 %% Input variables
 
-ACDC = 0;                   % Tag that determines whether calculation is AC(0) or DC(1)
+ACDC = 1;                   % Tag that determines whether calculation is AC(0) or DC(1)
 
-n_T = 1;                    % Number of field oscillations
+n_T = 5;                    % Number of field oscillations
 n_dt = 100;                  % Number of time steps within period of field oscillation
-dt = 9.75;                    % Time step
+dt = 20;                    % Time step
 
 %E0 = 0.0;                  % Initial energy of the wavepacket
 Fmax = 25.0;                % Drop of potential over chain
